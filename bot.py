@@ -17,6 +17,7 @@ ADMIN_ID = os.environ.get('ADMIN_ID')
 proxy_scheme=os.environ.get('scheme')
 proxy_hostname= os.environ.get('hostname')
 proxy_port = os.environ.get('port')
+proxy_on = os.environ.get('proxy_on')
 
 # If we are not inside a container, thus not getting ini info automatically
 conf = configparser.ConfigParser()
@@ -30,6 +31,7 @@ if not api_id:
     proxy_scheme = conf['proxy']['scheme']
     proxy_hostname = conf['proxy']['hostname']
     proxy_port = int(conf['proxy']['port'])
+    proxy_on = conf['proxy']['proxy_on']
 
 app_proxy = {
     'scheme': proxy_scheme,
@@ -45,7 +47,7 @@ app = Client(
     api_id = api_id,
     api_hash = api_hash,
     bot_token=bot_token,
-    proxy = app_proxy if proxy_scheme else None
+    proxy = app_proxy if proxy_on else None
 )
 
 
