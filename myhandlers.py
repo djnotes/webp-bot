@@ -124,3 +124,4 @@ async def handle_image(client: Client, message: Message):
     # await message.reply_document(document= of, caption= message.caption if message.caption else "Your WebP Image")
     await message.reply_document(document = of , caption = message.caption if message.caption else "Here's your WebP image", force_document=True)
     
+

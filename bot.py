@@ -7,6 +7,7 @@ import configparser
 import pyrogram.filters as filters
 
 from myhandlers import handle_callback_query, handle_image
+from language import fa as lang
 
 import os
 
@@ -51,11 +52,17 @@ app = Client(
 )
 
 
+
+
 # @app.on_message()
 # app.add_handler(MessageHandler(handle_updates))
 # app.add_handler(CallbackQueryHandler(handle_callback_query))
 
 app.add_handler(MessageHandler(handle_image, filters.photo | filters.document))
+
+@app.on_message(filters.command("help"))
+async def help(_, message):
+    await message.reply(lang.help_msg)
 
 
 app.start()
