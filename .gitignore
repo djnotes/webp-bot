@@ -4,3 +4,4 @@ session/
 out-temp.webp
 *.ini
 media/
+__pycache__/
