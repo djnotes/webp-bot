@@ -2,5 +2,5 @@ downloads/
 venv/
 session/
 out-temp.webp
-env.ini
+*.ini
 media/
